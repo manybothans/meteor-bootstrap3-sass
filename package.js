@@ -2,10 +2,13 @@ Package.describe({
 	summary: "Bootstrap 3 with Sass support"
 });
 
-Package.on_use(function (api) {
-	api.use(["jquery", "scss"]);
+Package.onUse(function (api) {
 
-	api.add_files([
+    api.versionsFrom('0.9.0');
+    
+	api.use(["jquery", "fourseven:scss"]);
+
+	api.addFiles([
 		"assets/javascripts/bootstrap/affix.js",
 		"assets/javascripts/bootstrap/alert.js",
 		"assets/javascripts/bootstrap/button.js",
@@ -20,7 +23,7 @@ Package.on_use(function (api) {
 		"assets/javascripts/bootstrap/popover.js"
 	], "client");
 
-	api.add_files([
+	api.addFiles([
 		"assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
 		"assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
 		"assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
@@ -28,11 +31,11 @@ Package.on_use(function (api) {
 	], "client");
 });
 
-Package.on_test(function(api) {
+Package.onTest(function(api) {
 	api.use("bootstrap3-sass");
-	api.use(["scss", "tinytest", "test-helpers"]);
+	api.use(["fourseven:scss", "tinytest", "test-helpers"]);
 
-	api.add_files([
+	api.addFiles([
 			"tests.scss",
 			"tests.js"
 		], "client");
